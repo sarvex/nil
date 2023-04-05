@@ -11,7 +11,6 @@ $env:XDG_CONFIG_HOME = $env:XDG_CONFIG_HOME ?? $env:LOCALAPPDATA
 $env:XDG_CACHE_HOME = $env:XDG_CACHE_HOME ?? $env:TEMP
 
 $env:NIL_RUNTIME_DIR = $env:NIL_RUNTIME_DIR ?? "$env:XDG_DATA_HOME/nil"
-$env:NIL_BASE16_DIR= $env:NIL_BASE16_DIR ?? "$XDG_DATA_HOME/nil/site/pack/packer/start/base16/lua/base16/highlight"
 $env:NIL_CONFIG_DIR = $env:NIL_CONFIG_DIR ?? "$env:XDG_CONFIG_HOME/nil"
 $env:NIL_CACHE_DIR = $env:NIL_CACHE_DIR ?? "$env:XDG_CACHE_HOME/nil"
 $env:NIL_BASE_DIR = $env:NIL_BASE_DIR ?? "$env:NIL_RUNTIME_DIR/nil"
@@ -21,7 +20,6 @@ $env:NIL_LOG_LEVEL= $env:NIL_LOG_LEVEL ?? "warn"
 $__nil_dirs = (
   $env:NIL_BASE_DIR,
   $env:NIL_RUNTIME_DIR,
-  $env:NIL_BASE16_DIR,
   $env:NIL_CONFIG_DIR,
   $env:NIL_CACHE_DIR
 )
@@ -298,18 +296,15 @@ function create_alias {
 function print_logo() {
   Write-Output "
 
-⠘⢵⢕⢽⡸⣕⢵⢝⡄⠀⠑⡽⡸⡄⠹⡜⣝⡄⠀⠀⠀⠀⠀⡔⡽⡸⠁
-⠀⠈⣗⡳⣉⠈⠸⣕⢝⣄⠀⠘⣝⢮⣂⠙⣜⢮⢆⠀⠀⢀⢜⡎⡗⠁ 
-⠀⠀⠐⢝⢼⢄⠀⠘⡵⣕⢆⠀⠘⣎⢮⢆⠘⡎⡗⡧⡀⣎⢧⡫⠀  
-   ⠈⢳⡹⣢⠀⠘⢮⢝⢦⠀⠈⢮⢳⡱⡈⢗⡕⣗⢕⠇⠀⠀  
-   ⠀⠀⢫⢮⣢⠀⠈⢮⢳⢕⡀⠈⢧⢳⢕⡀⢯⢪⠋⠀    
-   ⠀⠀⠀⢣⡳⣕⡀⠈⢣⢗⢵⡀⠈⢮⢳⡱⡀⠋⠀     
-    ⠀⠀⠀⠱⡵⣱⡀⠀⢫⣣⢳⢄⢠⡳⣹⠕⠀      
-   ⠀⠀⠀⠀⠀⠹⣜⢼⡀⠀⠪⡳⡕⣗⢝⠊⠀       
-         ⠘⡮⡺⡄⠀⠙⡼⣪⠃         
-         ⠀⠘⡵⡝⣆⠀⠘⠁          
-         ⠀⠀⠘⡺⡜⣆⠀           
-            ⠈⢞⠁            
+__/\\\\\_____/\\\__/\\\\\\\\\\\__/\\\_____________        
+ _\/\\\\\\___\/\\\_\/////\\\///__\/\\\_____________       
+  _\/\\\/\\\__\/\\\_____\/\\\_____\/\\\_____________      
+   _\/\\\//\\\_\/\\\_____\/\\\_____\/\\\_____________     
+    _\/\\\\//\\\\/\\\_____\/\\\_____\/\\\_____________    
+     _\/\\\_\//\\\/\\\_____\/\\\_____\/\\\_____________   
+      _\/\\\__\//\\\\\\_____\/\\\_____\/\\\_____________  
+       _\/\\\___\//\\\\\__/\\\\\\\\\\\_\/\\\\\\\\\\\\\\\_ 
+        _\///_____\/////__\///////////__\///////////////__
 
   "
 }

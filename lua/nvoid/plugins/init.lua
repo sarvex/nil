@@ -5,14 +5,6 @@ local core_plugins = {
   -- Packer
   { "wbthomason/packer.nvim" },
 
-  -- Base16
-  {
-    "nil-lua/base16",
-    branch = "nil-rolling",
-    config = function()
-      require("base16").load_theme()
-    end,
-  },
   {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig",
@@ -136,7 +128,6 @@ local core_plugins = {
   -- Alpha
   {
     "goolord/alpha-nvim",
-    after = "base16",
     config = function()
       require("nil.plugins.config.alpha")
     end,
