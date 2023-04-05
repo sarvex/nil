@@ -7,10 +7,10 @@
 <div align="center">
 
 
-![Nil Issues](https://img.shields.io/github/issues/nil-lua/nil?color=red&style=flat-square)
-![Nil Size](https://img.shields.io/github/repo-size/nil-lua/nil?style=flat-square)
-[![Last Commit](https://img.shields.io/github/last-commit/nil-lua/nil.svg?style=flat-square&label=Last%20Commit&color=58eb34)](https://github.com/nil-lua/nil/pulse)
-![Nil License](https://img.shields.io/github/license/nil-lua/nil?style=flat-square)
+![Nil Issues](https://img.shields.io/github/issues/sarvex/nil?color=red&style=flat-square)
+![Nil Size](https://img.shields.io/github/repo-size/sarvex/nil?style=flat-square)
+[![Last Commit](https://img.shields.io/github/last-commit/sarvex/nil.svg?style=flat-square&label=Last%20Commit&color=58eb34)](https://github.com/sarvex/nil/pulse)
+![Nil License](https://img.shields.io/github/license/sarvex/nil?style=flat-square)
 [![Neovim Minimum Version](https://img.shields.io/badge/Neovim-0.7+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/215cd34c-a660-4a6d-b85d-0af87869dc7c/deploy-status)](https://app.netlify.com/sites/nil/deploys)
 
