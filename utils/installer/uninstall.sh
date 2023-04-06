@@ -62,11 +62,30 @@ function remove_nil_bin() {
 
 function main() {
   parse_arguments "$@"
-  echo "Removing LunarVim binary..."
+
+  print_logo
+
+  echo "Removing Nil binary..."
   remove_nil_bin
-  echo "Removing LunarVim directories..."
+  echo "Removing Nil directories..."
   remove_nil_dirs
-  echo "Uninstalled LunarVim!"
+  echo "Uninstalled Nil!"
+}
+
+function print_logo() {
+  cat <<'EOF'
+
+__/\\\\\_____/\\\__/\\\\\\\\\\\__/\\\_____________        
+ _\/\\\\\\___\/\\\_\/////\\\///__\/\\\_____________       
+  _\/\\\/\\\__\/\\\_____\/\\\_____\/\\\_____________      
+   _\/\\\//\\\_\/\\\_____\/\\\_____\/\\\_____________     
+    _\/\\\\//\\\\/\\\_____\/\\\_____\/\\\_____________    
+     _\/\\\_\//\\\/\\\_____\/\\\_____\/\\\_____________   
+      _\/\\\__\//\\\\\\_____\/\\\_____\/\\\_____________  
+       _\/\\\___\//\\\\\__/\\\\\\\\\\\_\/\\\\\\\\\\\\\\\_ 
+        _\///_____\/////__\///////////__\///////////////__
+        
+EOF
 }
 
 main "$@"

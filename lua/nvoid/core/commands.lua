@@ -68,7 +68,7 @@ M.defaults = {
   {
     name = "NilChangelog",
     fn = function()
-      require("nil.core.telescope.custom-finders").view_lunarvim_changelog()
+      require("nil.core.telescope.custom-finders").view_nil_changelog()
     end,
   },
   {

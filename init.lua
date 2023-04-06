@@ -1,4 +1,4 @@
-local base_dir = vim.env.LUNARVIM_BASE_DIR
+local base_dir = vim.env.NIL_BASE_DIR
     or (function()
       local init_path = debug.getinfo(1, "S").source
       return init_path:sub(2):match("(.*[/\\])"):sub(1, -2)
@@ -17,7 +17,7 @@ local plugins = require "nil.plugins"
 require("nil.plugin-loader").load { plugins, nil.plugins }
 
 local Log = require "nil.core.log"
-Log:debug "Starting LunarVim"
+Log:debug "Starting Nil"
 
 local commands = require "nil.core.commands"
 commands.load(commands.defaults)

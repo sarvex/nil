@@ -191,24 +191,24 @@ function M.toggle_popup(ft)
   end
 
   local function set_syntax_hl()
-    vim.cmd [[highlight LvimInfoIdentifier gui=bold]]
-    vim.cmd [[highlight link LvimInfoHeader Type]]
-    vim.fn.matchadd("LvimInfoHeader", "Buffer info")
-    vim.fn.matchadd("LvimInfoHeader", "Active client(s)")
-    vim.fn.matchadd("LvimInfoHeader", fmt("Overridden %s server(s)", ft))
-    vim.fn.matchadd("LvimInfoHeader", "Formatters info")
-    vim.fn.matchadd("LvimInfoHeader", "Linters info")
-    vim.fn.matchadd("LvimInfoHeader", "Code actions info")
-    vim.fn.matchadd("LvimInfoHeader", "Automatic LSP info")
-    vim.fn.matchadd("LvimInfoIdentifier", " " .. ft .. "$")
+    vim.cmd [[highlight NilInfoIdentifier gui=bold]]
+    vim.cmd [[highlight link NilInfoHeader Type]]
+    vim.fn.matchadd("NilInfoHeader", "Buffer info")
+    vim.fn.matchadd("NilInfoHeader", "Active client(s)")
+    vim.fn.matchadd("NilInfoHeader", fmt("Overridden %s server(s)", ft))
+    vim.fn.matchadd("NilInfoHeader", "Formatters info")
+    vim.fn.matchadd("NilInfoHeader", "Linters info")
+    vim.fn.matchadd("NilInfoHeader", "Code actions info")
+    vim.fn.matchadd("NilInfoHeader", "Automatic LSP info")
+    vim.fn.matchadd("NilInfoIdentifier", " " .. ft .. "$")
     vim.fn.matchadd("string", "true")
     vim.fn.matchadd("string", "active")
     vim.fn.matchadd("string", "")
     vim.fn.matchadd("boolean", "inactive")
     vim.fn.matchadd("error", "false")
-    tbl_set_highlight(require("nil.lsp.null-ls.formatters").list_registered(ft), "LvimInfoIdentifier")
-    tbl_set_highlight(require("nil.lsp.null-ls.linters").list_registered(ft), "LvimInfoIdentifier")
-    tbl_set_highlight(require("nil.lsp.null-ls.code_actions").list_registered(ft), "LvimInfoIdentifier")
+    tbl_set_highlight(require("nil.lsp.null-ls.formatters").list_registered(ft), "NilInfoIdentifier")
+    tbl_set_highlight(require("nil.lsp.null-ls.linters").list_registered(ft), "NilInfoIdentifier")
+    tbl_set_highlight(require("nil.lsp.null-ls.code_actions").list_registered(ft), "NilInfoIdentifier")
   end
 
   local Popup = require("nil.interface.popup"):new {

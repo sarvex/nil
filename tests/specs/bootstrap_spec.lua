@@ -3,17 +3,17 @@ local uv = vim.loop
 local home_dir = uv.os_homedir()
 
 a.describe("initial start", function()
-  local lvim_config_path = get_config_dir()
-  local lvim_runtime_path = get_runtime_dir()
-  local lvim_cache_path = get_cache_dir()
+  local nil_config_path = get_config_dir()
+  local nil_runtime_path = get_runtime_dir()
+  local nil_cache_path = get_cache_dir()
 
   a.it("should be able to detect test environment", function()
-    assert.truthy(os.getenv "LVIM_TEST_ENV")
-    assert.falsy(package.loaded["lvim.impatient"])
+    assert.truthy(os.getenv "_TEST_ENV")
+    assert.falsy(package.loaded["nil.impatient"])
   end)
 
-  a.it("should be able to use lunarvim cache directory using vim.fn", function()
-    assert.equal(lvim_cache_path, vim.fn.stdpath "cache")
+  a.it("should be able to use nil cache directory using vim.fn", function()
+    assert.equal(nil_cache_path, vim.fn.stdpath "cache")
   end)
 
   a.it("should be to retrieve default neovim directories", function()
@@ -21,10 +21,10 @@ a.describe("initial start", function()
     assert.equal(join_paths(xdg_config, "nvim"), vim.call("stdpath", "config"))
   end)
 
-  a.it("should be able to read lunarvim directories", function()
+  a.it("should be able to read nil directories", function()
     local rtp_list = vim.opt.rtp:get()
-    assert.truthy(vim.tbl_contains(rtp_list, lvim_runtime_path .. "/lvim"))
-    assert.truthy(vim.tbl_contains(rtp_list, lvim_config_path))
+    assert.truthy(vim.tbl_contains(rtp_list, nil_runtime_path .. "/nil"))
+    assert.truthy(vim.tbl_contains(rtp_list, nil_config_path))
   end)
 
   a.it("should be able to run treesitter without errors", function()

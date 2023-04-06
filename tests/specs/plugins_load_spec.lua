@@ -1,13 +1,13 @@
 local a = require "plenary.async_lib.tests"
 
 a.describe("plugin-loader", function()
-  local plugins = require "lvim.plugins"
-  local loader = require "lvim.plugin-loader"
+  local plugins = require "nil.plugins"
+  local loader = require "nil.plugin-loader"
 
   pcall(function()
     nil.log.level = "debug"
     package.loaded["packer.log"] = nil
-    package.loaded["lvim.core.log"] = nil
+    package.loaded["nil.core.log"] = nil
   end)
 
   a.it("should be able to load default packages without errors", function()
@@ -26,7 +26,7 @@ a.describe("plugin-loader", function()
   a.it("should be able to load lsp packages without errors", function()
     loader.load { plugins, nil.plugins }
 
-    require("lvim.lsp").setup()
+    require("nil.lsp").setup()
 
     local lsp_packages = {
       "lspconfig",

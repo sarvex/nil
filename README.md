@@ -61,10 +61,3 @@ the user config for nil is located art `~/.config/nil/config.lua` nearly every t
 
  
 </details>
-        
-# Thanks To
-+ [Lunarvim](https://github.com/LunarVim/LunarVim)
-+ [Nvchad](https://github.com/NvChad/NvChad)
-+ [CosmicNvim](https://github.com/mattleong/CosmicNvim)
-+ [Nv-ide](https://github.com/crivotz/nv-ide)
-+ [Kyoto.nvim](https://github.com/samrath2007/kyoto.nvim) 

@@ -9,7 +9,6 @@ declare -r XDG_CACHE_HOME="${XDG_CACHE_HOME:-"$HOME/.cache"}"
 declare -r XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config"}"
 
 declare -r NIL_RUNTIME_DIR="${NIL_RUNTIME_DIR:-"$XDG_DATA_HOME/nil"}"
-declare -r NIL_BASE16_DIR="${NIL_BASE16_DIR:-"$XDG_DATA_HOME/nil/site/pack/packer/start/base16/lua/base16/highlight"}"
 declare -r NIL_CONFIG_DIR="${NIL_CONFIG_DIR:-"$XDG_CONFIG_HOME/nil"}"
 declare -r NIL_CACHE_DIR="${NIL_CACHE_DIR:-"$XDG_CACHE_HOME/nil"}"
 declare -r NIL_BASE_DIR="${NIL_BASE_DIR:-"$NIL_RUNTIME_DIR/nil"}"
@@ -30,7 +29,6 @@ declare ADDITIONAL_WARNINGS=""
 declare -a __nil_dirs=(
   "$NIL_CONFIG_DIR"
   "$NIL_RUNTIME_DIR"
-  "$NIL_BASE16_DIR"
   "$NIL_CACHE_DIR"
 )
 
@@ -142,7 +140,7 @@ function main() {
   if [ "$ARGS_LOCAL" -eq 1 ]; then
     link_local_nil
   elif [ -d "$NIL_BASE_DIR" ]; then
-    validate_lunarvim_files
+    validate_nil_files
   else
     clone_nil
   fi
@@ -210,7 +208,7 @@ function check_neovim_min_version() {
   fi
 }
 
-function validate_nilvim_files() {
+function validate_ninil_files() {
   local verify_version_cmd='if v:errmsg != "" | cquit | else | quit | endif'
   if ! "$INSTALL_PREFIX/bin/nil" --headless -c 'NilUpdate' -c "$verify_version_cmd" &>/dev/null; then
     msg "Removing old installation files"
@@ -443,18 +441,15 @@ function setup_nil() {
 function print_logo() {
   cat <<'EOF'
 
-⠘⢵⢕⢽⡸⣕⢵⢝⡄⠀⠑⡽⡸⡄⠹⡜⣝⡄⠀⠀⠀⠀⠀⡔⡽⡸⠁
-⠀⠈⣗⡳⣉⠈⠸⣕⢝⣄⠀⠘⣝⢮⣂⠙⣜⢮⢆⠀⠀⢀⢜⡎⡗⠁ 
-⠀⠀⠐⢝⢼⢄⠀⠘⡵⣕⢆⠀⠘⣎⢮⢆⠘⡎⡗⡧⡀⣎⢧⡫⠀  
-   ⠈⢳⡹⣢⠀⠘⢮⢝⢦⠀⠈⢮⢳⡱⡈⢗⡕⣗⢕⠇⠀⠀  
-   ⠀⠀⢫⢮⣢⠀⠈⢮⢳⢕⡀⠈⢧⢳⢕⡀⢯⢪⠋⠀    
-   ⠀⠀⠀⢣⡳⣕⡀⠈⢣⢗⢵⡀⠈⢮⢳⡱⡀⠋⠀     
-    ⠀⠀⠀⠱⡵⣱⡀⠀⢫⣣⢳⢄⢠⡳⣹⠕⠀      
-   ⠀⠀⠀⠀⠀⠹⣜⢼⡀⠀⠪⡳⡕⣗⢝⠊⠀       
-   ⠀     ⠘⡮⡺⡄⠀⠙⡼⣪⠃         
-   ⠀     ⠀⠘⡵⡝⣆⠀⠘⠁          
-   ⠀     ⠀⠀⠘⡺⡜⣆⠀           
-            ⠈⢞⠁            
+__/\\\\\_____/\\\__/\\\\\\\\\\\__/\\\_____________        
+ _\/\\\\\\___\/\\\_\/////\\\///__\/\\\_____________       
+  _\/\\\/\\\__\/\\\_____\/\\\_____\/\\\_____________      
+   _\/\\\//\\\_\/\\\_____\/\\\_____\/\\\_____________     
+    _\/\\\\//\\\\/\\\_____\/\\\_____\/\\\_____________    
+     _\/\\\_\//\\\/\\\_____\/\\\_____\/\\\_____________   
+      _\/\\\__\//\\\\\\_____\/\\\_____\/\\\_____________  
+       _\/\\\___\//\\\\\__/\\\\\\\\\\\_\/\\\\\\\\\\\\\\\_ 
+        _\///_____\/////__\///////////__\///////////////__
 
 EOF
 }

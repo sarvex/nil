@@ -1,6 +1,6 @@
 local a = require "plenary.async_lib.tests"
-local utils = require "lvim.utils"
-local helpers = require "tests.lvim.helpers"
+local utils = require "nil.utils"
+local helpers = require "tests.nil.helpers"
 local spy = require "luassert.spy"
 
 a.describe("lsp workflow", function()
@@ -34,24 +34,24 @@ a.describe("lsp workflow", function()
       assert.equal(vim.fn.delete(nil.lsp.templates_dir, "rf"), 0)
     end
 
-    require("lvim.lsp").setup()
+    require("nil.lsp").setup()
 
     assert.True(utils.is_directory(nil.lsp.templates_dir))
   end)
 
   a.it("should not include blacklisted servers in the generated templates", function()
-    require("lvim.lsp").setup()
+    require("nil.lsp").setup()
 
     for _, file in ipairs(vim.fn.glob(nil.lsp.templates_dir .. "/*.lua", 1, 1)) do
       for _, server_name in ipairs(nil.lsp.override) do
-        local setup_cmd = string.format([[require("lvim.lsp.manager").setup(%q)]], server_name)
+        local setup_cmd = string.format([[require("nil.lsp.manager").setup(%q)]], server_name)
         assert.False(helpers.file_contains(file, setup_cmd))
       end
     end
   end)
 
   a.it("should only include one server per generated template", function()
-    require("lvim.lsp").setup()
+    require("nil.lsp").setup()
 
     local allowed_dupes = { "tailwindcss" }
     for _, file in ipairs(vim.fn.glob(nil.lsp.templates_dir .. "/*.lua", 1, 1)) do
@@ -75,11 +75,11 @@ a.describe("lsp workflow", function()
   end)
 
   a.it("should not attempt to re-generate ftplugin templates", function()
-    local s = spy.on(require "lvim.lsp.templates", "generate_templates")
-    local plugins = require "lvim.plugins"
-    require("lvim.plugin-loader").load { plugins, nil.plugins }
+    local s = spy.on(require "nil.lsp.templates", "generate_templates")
+    local plugins = require "nil.plugins"
+    require("nil.plugin-loader").load { plugins, nil.plugins }
 
-    require("lvim.lsp").setup()
+    require("nil.lsp").setup()
     assert.spy(s).was_not_called()
     s:revert()
   end)
